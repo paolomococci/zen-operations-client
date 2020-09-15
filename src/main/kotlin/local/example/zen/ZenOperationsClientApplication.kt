@@ -22,8 +22,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ZenOperationsClientApplication
+class Application
 
 fun main(args: Array<String>) {
-	runApplication<ZenOperationsClientApplication>(*args)
+	runApplication<Application>(*args)
 }
