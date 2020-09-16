@@ -20,8 +20,10 @@ package local.example.zen.layout
 
 import com.vaadin.flow.component.dependency.CssImport
 import com.vaadin.flow.component.page.Push
+import com.vaadin.flow.server.PWA
 
 @Push
 @CssImport(value = "style.css")
+@PWA(enableInstallPrompt = false, name = "zen-operations-admin", shortName = "operations-admin", startPath = "/main")
 class MainLayout {
 }
