@@ -18,5 +18,11 @@
 
 package local.example.zen.view
 
+import com.vaadin.flow.router.PageTitle
+import com.vaadin.flow.router.RouteAlias
+import local.example.zen.layout.MainLayout
+
+@PageTitle(value = "someone view")
+@RouteAlias(value = "someone", layout = MainLayout::class)
 class SomeoneView {
 }
