@@ -18,5 +18,5 @@
 
 package local.example.zen.view
 
-class Someone {
+class SomeoneView {
 }
