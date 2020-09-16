@@ -18,5 +18,10 @@
 
 package local.example.zen.layout
 
+import com.vaadin.flow.component.dependency.CssImport
+import com.vaadin.flow.component.page.Push
+
+@Push
+@CssImport(value = "style.css")
 class MainLayout {
 }
