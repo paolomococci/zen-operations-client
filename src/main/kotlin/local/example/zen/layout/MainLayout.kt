@@ -18,14 +18,20 @@
 
 package local.example.zen.layout
 
+import com.vaadin.flow.component.applayout.AppLayout
 import com.vaadin.flow.component.dependency.CssImport
 import com.vaadin.flow.component.page.Push
 import com.vaadin.flow.component.page.Viewport
+import com.vaadin.flow.router.AfterNavigationEvent
+import com.vaadin.flow.router.AfterNavigationObserver
 import com.vaadin.flow.server.PWA
 
 @Push
 @CssImport(value = "style.css")
 @PWA(enableInstallPrompt = false, name = "zen-operations-admin", shortName = "operations-admin", startPath = "/main")
 @Viewport(value = "width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, viewport-fit=cover")
-class MainLayout {
+class MainLayout : AppLayout(), AfterNavigationObserver {
+    override fun afterNavigation(event: AfterNavigationEvent?) {
+        TODO("Not yet implemented")
+    }
 }
