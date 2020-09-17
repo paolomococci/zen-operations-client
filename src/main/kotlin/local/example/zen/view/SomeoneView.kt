@@ -25,5 +25,5 @@ import local.example.zen.layout.MainLayout
 
 @PageTitle(value = "someone view")
 @RouteAlias(value = "someone", layout = MainLayout::class)
-class SomeoneView : Main() {
+class ItemView : Main() {
 }
