@@ -18,7 +18,10 @@
 
 package local.example.zen.view
 
+import com.vaadin.flow.component.html.H2
 import com.vaadin.flow.component.html.Main
+import com.vaadin.flow.component.html.Paragraph
+import com.vaadin.flow.component.html.Section
 import com.vaadin.flow.router.PageTitle
 import com.vaadin.flow.router.Route
 import com.vaadin.flow.router.RouteAlias
@@ -28,4 +31,14 @@ import local.example.zen.layout.MainLayout
 @RouteAlias(value = "", layout = MainLayout::class)
 @Route(value = "", absolute = false, registerAtStartup = true, layout = MainLayout::class)
 class MainView : Main() {
+
+    companion object {
+        fun mainView(mainView: MainView) {
+            val paragraph = Paragraph()
+            val subtitle = H2("access through a RESTful web service")
+            paragraph.add("open the navigation bar and click on the links")
+            val mainSection = Section(subtitle, paragraph)
+            mainView.add(mainSection)
+        }
+    }
 }
