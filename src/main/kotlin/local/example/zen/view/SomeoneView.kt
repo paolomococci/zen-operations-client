@@ -23,7 +23,7 @@ import com.vaadin.flow.router.PageTitle
 import com.vaadin.flow.router.RouteAlias
 import local.example.zen.layout.MainLayout
 
-@PageTitle(value = "someone view")
-@RouteAlias(value = "someone", layout = MainLayout::class)
+@PageTitle(value = "item view")
+@RouteAlias(value = "item", layout = MainLayout::class)
 class ItemView : Main() {
 }
