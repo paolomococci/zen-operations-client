@@ -17,10 +17,12 @@
  */
 package local.example.zen.model
 
+import org.springframework.hateoas.RepresentationModel
+
 data class Item (
         val id: String?,
         val code: String?,
         val name: String?,
         val description: String?,
         val price: Double?
-)
+) : RepresentationModel<Item>()
