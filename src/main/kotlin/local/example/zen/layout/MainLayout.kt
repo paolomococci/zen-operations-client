@@ -29,7 +29,6 @@ import com.vaadin.flow.router.AfterNavigationObserver
 import com.vaadin.flow.router.RouterLink
 import com.vaadin.flow.server.PWA
 import local.example.zen.view.MainView
-import local.example.zen.view.ItemView
 
 @Push
 @CssImport(value = "style.css")
@@ -37,42 +36,34 @@ import local.example.zen.view.ItemView
 @Viewport(value = "width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, viewport-fit=cover")
 class MainLayout : AppLayout(), AfterNavigationObserver {
 
-    internal var title: H1? = null
-    internal var mainView: RouterLink? = null
-    internal var itemView: RouterLink? = null
+    private var title: H1? = H1()
+    private lateinit var mainView: RouterLink
 
-    private fun listLinks(): Array<RouterLink?> {
+    fun MainLayout() {
+        title = H1("reactive RESTful web service data accessing")
+        mainView = RouterLink("main view", MainView::class.java)
+        val unorderedList = OrderedList(
+                ListItem(mainView)
+        )
+        val header = Header(DrawerToggle(), title)
+        val nav = Nav(unorderedList)
+        this.addToNavbar(header)
+        addToDrawer(nav)
+        this.primarySection = Section.DRAWER
+        this.isDrawerOpened = false
+    }
+
+    private fun listLinks(): Array<RouterLink?>? {
         return arrayOf(
-                mainView,
-                itemView
+                mainView
         )
     }
 
     override fun afterNavigation(afterNavigationEvent: AfterNavigationEvent?) {
-        for (routerLink in listLinks()) {
-            if (routerLink!!.highlightCondition.shouldHighlight(
-                            routerLink,
-                            afterNavigationEvent
-                    )) {
-                title!!.text = routerLink.text
+        for (link in this.listLinks()!!) {
+            if (link!!.highlightCondition.shouldHighlight(link, afterNavigationEvent)) {
+                title!!.text = link.text
             }
         }
     }
-
-}
-
-fun mainLayout(mainLayout: MainLayout) {
-    mainLayout.title = H1("reactive RESTful web service data accessing")
-    mainLayout.mainView = RouterLink("main view", MainView::class.java)
-    mainLayout.itemView = RouterLink("someone view", ItemView::class.java)
-    val orderedList = OrderedList(
-            ListItem(mainLayout.mainView),
-            ListItem(mainLayout.itemView)
-    )
-    val header = Header(DrawerToggle(), mainLayout.title)
-    val nav = Nav(orderedList)
-    mainLayout.addToNavbar(header)
-    mainLayout.addToDrawer(nav)
-    mainLayout.primarySection = AppLayout.Section.DRAWER
-    mainLayout.isDrawerOpened = true
 }
