@@ -28,9 +28,12 @@ import com.vaadin.flow.component.notification.Notification
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.component.textfield.TextField
 import com.vaadin.flow.router.Route
+import org.springframework.web.servlet.View
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 
 @Route(value = "")
-class MainView : VerticalLayout() {
+class MainView : VerticalLayout(), View {
 
     private lateinit var nameField: TextField
     private lateinit var surnameField: TextField
@@ -46,5 +49,9 @@ class MainView : VerticalLayout() {
                 Notification.show("Welcome, ${nameField.value} ${surnameField.value}")
             }
         }
+    }
+
+    override fun render(model: MutableMap<String, *>?, request: HttpServletRequest, response: HttpServletResponse) {
+        TODO("Not yet implemented")
     }
 }
