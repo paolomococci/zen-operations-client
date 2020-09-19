@@ -18,24 +18,32 @@
 
 package local.example.zen.view
 
-import com.github.mvysny.karibudsl.v10.*
+import com.github.mvysny.karibudsl.v10.button
+import com.github.mvysny.karibudsl.v10.formLayout
+import com.github.mvysny.karibudsl.v10.onLeftClick
+import com.github.mvysny.karibudsl.v10.textField
 import com.vaadin.flow.component.icon.Icon
 import com.vaadin.flow.component.icon.VaadinIcon.ALARM
 import com.vaadin.flow.component.notification.Notification
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
+import com.vaadin.flow.component.textfield.TextField
 import com.vaadin.flow.router.Route
 
 @Route(value = "")
 class MainView : VerticalLayout() {
+
+    private lateinit var nameField: TextField
+    private lateinit var surnameField: TextField
+
     init {
         setSizeFull()
         formLayout {
-            textField("name")
-            text("surname")
+            nameField = textField("name")
+            surnameField = textField("surname")
         }
-        button("click here", Icon(ALARM)) {
+        button("welcome", Icon(ALARM)) {
             onLeftClick {
-                Notification.show("clicked")
+                Notification.show("Welcome, ${nameField.value} ${surnameField.value}")
             }
         }
     }
