@@ -18,22 +18,5 @@
 
 package local.example.zen.view
 
-import com.vaadin.flow.component.html.H2
-import com.vaadin.flow.component.html.Main
-import com.vaadin.flow.component.html.Paragraph
-import com.vaadin.flow.component.html.Section
-import com.vaadin.flow.router.*
-import local.example.zen.layout.MainLayout
 
-@PageTitle(value = "main view")
-@Route(value = "", layout = MainLayout::class)
-@RouteAlias(value = "main", layout = MainLayout::class)
-class MainView : Main()
-
-fun MainView(mainView: MainView) {
-    val paragraph = Paragraph()
-    val subtitle = H2("access through a RESTful web service")
-    paragraph.add("open the navigation bar and click on the links")
-    val mainSection = Section(subtitle, paragraph)
-    mainView.add(mainSection)
-}
+class MainView
