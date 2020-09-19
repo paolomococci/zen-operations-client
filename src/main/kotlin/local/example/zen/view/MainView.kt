@@ -22,18 +22,15 @@ import com.github.mvysny.karibudsl.v10.button
 import com.github.mvysny.karibudsl.v10.formLayout
 import com.github.mvysny.karibudsl.v10.onLeftClick
 import com.github.mvysny.karibudsl.v10.textField
+import com.vaadin.flow.component.html.Main
 import com.vaadin.flow.component.icon.Icon
 import com.vaadin.flow.component.icon.VaadinIcon.ALARM
 import com.vaadin.flow.component.notification.Notification
-import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.component.textfield.TextField
 import com.vaadin.flow.router.Route
-import org.springframework.web.servlet.View
-import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletResponse
 
 @Route(value = "")
-class MainView : VerticalLayout(), View {
+class MainView :  Main() {
 
     private lateinit var nameField: TextField
     private lateinit var surnameField: TextField
@@ -49,9 +46,5 @@ class MainView : VerticalLayout(), View {
                 Notification.show("Welcome, ${nameField.value} ${surnameField.value}")
             }
         }
-    }
-
-    override fun render(model: MutableMap<String, *>?, request: HttpServletRequest, response: HttpServletResponse) {
-        TODO("Not yet implemented")
     }
 }
