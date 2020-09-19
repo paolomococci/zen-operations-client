@@ -18,5 +18,25 @@
 
 package local.example.zen.view
 
+import com.github.mvysny.karibudsl.v10.*
+import com.vaadin.flow.component.icon.Icon
+import com.vaadin.flow.component.icon.VaadinIcon.ALARM
+import com.vaadin.flow.component.notification.Notification
+import com.vaadin.flow.component.orderedlayout.VerticalLayout
+import com.vaadin.flow.router.Route
 
-class MainView
+@Route(value = "")
+class MainView : VerticalLayout() {
+    init {
+        setSizeFull()
+        formLayout {
+            textField("name")
+            text("surname")
+        }
+        button("click here", Icon(ALARM)) {
+            onLeftClick {
+                Notification.show("clicked")
+            }
+        }
+    }
+}
