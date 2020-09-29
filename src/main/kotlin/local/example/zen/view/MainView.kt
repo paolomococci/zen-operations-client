@@ -32,13 +32,13 @@ import com.vaadin.flow.router.Route
 
 @Route(value = "")
 @CssImport("style.css")
-class MainView :  Main() {
+class MainView : Main() {
 
     private lateinit var nameField: TextField
     private lateinit var surnameField: TextField
 
     init {
-        className = "main"
+        className = "main-view"
         setSizeFull()
         formLayout {
             nameField = textField("name")
