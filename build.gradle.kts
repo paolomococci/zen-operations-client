@@ -33,7 +33,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("eu.vaadinonkotlin:vok-framework:0.11.2")
-	implementation("com.github.mvysny.karibudsl:karibu-dsl:1.0.2")
+	implementation("com.github.mvysny.karibudsl:karibu-dsl:1.1.1")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
